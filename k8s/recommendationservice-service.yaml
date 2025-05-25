@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2025-05-24T12:12:46Z"
+  labels:
+    app: recommendationservice
+  name: recommendationservice
+  namespace: default
+  resourceVersion: "1748088766879535024"
+  uid: 05f0ec89-41e7-4ee0-860e-881c5d49fb37
+spec:
+  clusterIP: 34.118.233.215
+  clusterIPs:
+  - 34.118.233.215
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: recommendationservice
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2025-05-24T15:43:30Z"
+  labels:
+    app: cartservice
+  name: cartservice
+  namespace: default
+  resourceVersion: "1748101410662623018"
+  uid: 6578be88-efe9-4e7a-b132-e4c596437e26
+spec:
+  clusterIP: 34.118.228.173
+  clusterIPs:
+  - 34.118.228.173
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 7070
+    protocol: TCP
+    targetPort: 7070
+  selector:
+    app: cartservice
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

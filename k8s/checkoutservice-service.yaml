@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2025-05-24T15:50:32Z"
+  labels:
+    app: checkoutservice
+  name: checkoutservice
+  namespace: default
+  resourceVersion: "1748101832337663020"
+  uid: 233ec549-9d24-4bc8-b209-a3648ec46f13
+spec:
+  clusterIP: 34.118.233.217
+  clusterIPs:
+  - 34.118.233.217
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 5050
+    protocol: TCP
+    targetPort: 5050
+  selector:
+    app: checkoutservice
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

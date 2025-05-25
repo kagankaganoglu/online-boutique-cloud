@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "6"
+  creationTimestamp: "2025-05-24T12:12:46Z"
+  generation: 6
+  labels:
+    app: recommendationservice
+  name: recommendationservice
+  namespace: default
+  resourceVersion: "1748097668284623010"
+  uid: 1cdb2344-2a33-440f-ad5e-0b7a034bd28d
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: recommendationservice
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2025-05-24T14:41:03Z"
+      creationTimestamp: null
+      labels:
+        app: recommendationservice
+    spec:
+      containers:
+      - env:
+        - name: PRODUCT_CATALOG_SERVICE_ADDR
+          value: http://productcatalogservice:80
+        - name: REDIS_ADDR
+          value: redis:6379
+        image: gcr.io/newproject-460615/recommendationservice:latest
+        imagePullPolicy: Always
+        name: recommendationservice
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2025-05-24T14:38:15Z"
+    lastUpdateTime: "2025-05-24T14:38:15Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-05-24T14:22:40Z"
+    lastUpdateTime: "2025-05-24T14:41:08Z"
+    message: ReplicaSet "recommendationservice-7dc7469cf5" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 6
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

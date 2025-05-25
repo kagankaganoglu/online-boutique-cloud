@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2025-05-24T15:45:36Z"
+  labels:
+    app: shippingservice
+  name: shippingservice
+  namespace: default
+  resourceVersion: "1748101536386575017"
+  uid: 37422fb0-1214-4041-b7c5-b9d617cb7342
+spec:
+  clusterIP: 34.118.236.156
+  clusterIPs:
+  - 34.118.236.156
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 50051
+    protocol: TCP
+    targetPort: 50051
+  selector:
+    app: shippingservice
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

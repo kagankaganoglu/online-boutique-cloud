@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  creationTimestamp: "2025-05-24T17:40:19Z"
+  labels:
+    app: paymentservice
+  name: paymentservice
+  namespace: default
+  resourceVersion: "1748108419872223005"
+  uid: 3768d564-9fc8-4960-8a1e-7845fe6f1328
+spec:
+  clusterIP: 34.118.231.46
+  clusterIPs:
+  - 34.118.231.46
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 50051
+    protocol: TCP
+    targetPort: 50051
+  selector:
+    app: paymentservice
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

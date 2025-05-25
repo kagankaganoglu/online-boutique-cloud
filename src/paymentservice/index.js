@@ -65,9 +65,11 @@ else {
 const path = require('path');
 const HipsterShopServer = require('./server');
 
-const PORT = process.env['PORT'];
+const PORT = process.env['PORT'] || '50051';
 const PROTO_PATH = path.join(__dirname, '/proto/');
+console.log('Starting payment service with PORT=', process.env.PORT);
 
 const server = new HipsterShopServer(PROTO_PATH, PORT);
+console.log(`>> Calling server.listen() now…`);
 
 server.listen();
