@@ -17,7 +17,7 @@ This repository demonstrates a hybrid cloud deployment of Google's Online Boutiq
 
 ---
 
-## 🔧 Prerequisites
+## Prerequisites
 
 - Google Cloud SDK (`gcloud`)
 - Docker
@@ -27,7 +27,7 @@ This repository demonstrates a hybrid cloud deployment of Google's Online Boutiq
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### 1. Build & Push Docker Images
 
@@ -88,7 +88,7 @@ After deployment, note each Service URL (for example, `https://payment-XXX-uc.a.
 
 ---
 
-## 🧪 Performance Testing with Locust
+## Performance Testing with Locust
 
 Testing scripts live in `/locust`.
 
